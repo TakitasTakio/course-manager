@@ -7,6 +7,16 @@ class CourseRow extends React.Component {
       }
    render() {
        return (
+           <div>
+               <tr>
+                   <td>{this.props.course.title}</td>
+                   <td><button
+                       onClick={this.props.delete(this.props.course.id)}>
+                       Delete
+                   </button>
+                   </td>
+               </tr>
+
            <tr>
            <td>
            <Link to={`/course/${this.props.course.id}/edit`}>
@@ -14,6 +24,7 @@ class CourseRow extends React.Component {
            </Link>
            </td>
            </tr>
+           </div>
        )
    }
 }
