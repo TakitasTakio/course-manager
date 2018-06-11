@@ -29,8 +29,8 @@ findAllCourses() {
 
     
 rendercourseRows() {
-      var courses = this.state.courses.map(
-            function(course){
+      let courses = this.state.courses.map(
+            course => {
                   return <CourseRow key={course.id} course={course} delete = {this.deleteCourse} />
             }
       );
