@@ -31,6 +31,7 @@ constructor(props) {
 
     this.setCourseId = this.setCourseId.bind(this);
 
+
 }
 setCourseId(courseId) {
    this.setState({courseId: courseId});
@@ -90,26 +91,17 @@ renderModules() {
 
  render() { return (
   <div className="row">
-     <h4>Modules course Id:{this.state.courseId}</h4>
+     <h4>Module List for course Id: {this.state.courseId}</h4>
      <th><input className="form-control" placeholder="New Module"
                 value={this.state.module.title} onChange={this.setModuleTitle}/></th>
      <th><button className="btn btn-primary" onClick={this.createModule}>
      Create</button></th>
-   <ul className="list-group">
-       <ModuleListItem/>
-       <ModuleListItem/>
-       <ModuleListItem/>
-       <ModuleListItem/>
-       <ModuleListItem/>
-       <ModuleListItem/>
 
 
-   
-   </ul>
    {this.renderModules()}
 
 
-         < Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>;
+         < Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>
 
 
   </div>
