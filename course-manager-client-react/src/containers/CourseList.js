@@ -48,8 +48,8 @@ createCourse(){
        .then(() => { this.findAllCourses(); })
 
    }
-deleteCourse(courseId) { CourseService
-       .deleteCourse(courseId)
+deleteCourse(courseId) { this.courseService
+                             .deleteCourse(courseId)
  }
 
 
