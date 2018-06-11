@@ -1,20 +1,19 @@
-import React  from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class ModuleListItem
 extends React.Component {
  constructor(props){
   super(props);
+
  }
  render() {
      return <div>
          <li className="list-group-item">
              {this.props.module.title}
-         <button onClick={() => {
+         <button className="fa fa-trash" onClick={() => {
              this.props.delete(this.props.module.id)
-         }}>
-             DELETE
-         </button>
+         }}></button>
          </li>
 
          <span className="float-right">
@@ -26,6 +25,6 @@ extends React.Component {
              {this.props.module.title}
          </Link>
 
-     </div>;
+     </div>
  }
 }
