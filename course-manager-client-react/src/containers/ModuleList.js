@@ -3,7 +3,7 @@ import ModuleListItem from '../components/ModuleListItem';
 import ModuleService from '../services/ModuleService';
 import ModuleEditor from './ModuleEditor';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Route} from 'react-router-dom';
 
 
 export default class ModuleList
@@ -45,9 +45,8 @@ componentWillReceiveProps(newProps){
 }
 
 setModuleTitle(event) {
-    console.log(this.state.module);
-   this.setState({module: {title: event.target.value
-}})}
+    console.log(event.target.value);
+    this.setState({module: {title: event.target.value}})}
    
 createModule() {
    this.moduleService.createModule
@@ -81,7 +80,7 @@ deleteModule(moduleId) {
 renderModules() {
   let modules =
   this.state.modules.map((module) => {
-    return (<ModuleListItem module={module} key={module.id}
+    return (<ModuleListItem module={module} key={module.id} title={module.title}
                             delete={this.deleteModule}/>)
   });
    return (<ul>{modules}</ul>)
@@ -97,20 +96,22 @@ renderModules() {
      <th><button className="btn btn-primary" onClick={this.createModule}>
      Create</button></th>
    <ul className="list-group">
-     <ModuleListItem/>
-     <ModuleListItem/>
-     <ModuleListItem/>
-     <ModuleListItem/>
-     <ModuleListItem/>
-     <ModuleListItem/>
+       <ModuleListItem/>
+       <ModuleListItem/>
+       <ModuleListItem/>
+       <ModuleListItem/>
+       <ModuleListItem/>
+       <ModuleListItem/>
+
+
    
    </ul>
    {this.renderModules()}
 
-   <Router>
+
          < Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>;
 
-    </Router>
+
   </div>
 )}
  
