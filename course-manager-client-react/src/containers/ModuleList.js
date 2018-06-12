@@ -29,13 +29,16 @@ constructor(props) {
    this.moduleService = ModuleService.instance;
     this.deleteModule = this.deleteModule.bind(this);
 
-    this.setCourseId = this.setCourseId.bind(this);
+
 
 
 }
+
 setCourseId(courseId) {
-   this.setState({courseId: courseId});
-}
+        this.setState
+        ({courseId: courseId});
+    }
+
 
 componentDidMount() {
    this.setCourseId(this.props.courseId);
@@ -66,7 +69,7 @@ findAllModulesForCourse(courseId) {
 }
 
 setModules(modules) {
-   this.setState({modules: modules})
+   this.setState({modules:[modules]})
 }
 
 deleteModule(moduleId) {
