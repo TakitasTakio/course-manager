@@ -1,4 +1,4 @@
-const MODULE_API_URL ='http://localhost:8080/api/module/MODULE_ID';
+
 
 
 
@@ -16,7 +16,9 @@ export default class ModuleService {
  }
  
  createModule(courseId, module) {
-   return fetch(MODULE_API_URL.replace('CID', courseId),
+     const MODULE_API_URL_1 = 'http://localhost:8080/api/course/CID/module';
+
+   return fetch(MODULE_API_URL_1.replace('CID', courseId),
    {   body: JSON.stringify(module),
        headers: { 'Content-Type': 'application/json' },
        method: 'POST'
@@ -25,18 +27,22 @@ export default class ModuleService {
 }
 
 findAllModulesForCourse(courseId) {
-   return fetch(
-      MODULE_API_URL
-         .replace('CID', courseId))
-      .then(function (response) {
-         return response.json();
-      })
-}
+    const MODULE_API_URL_2 = 'http://localhost:8080/api/course/CID/module';
+   return fetch(MODULE_API_URL_2
+          .replace('CID', courseId),
+          {body: JSON.stringify(module),
+           headers: { 'Content-Type': 'application/json' },
+           method: 'POST'})
+         .then(function (response) {
+         return response.json();})
+ }
+
 
 
 
 deleteModule(moduleId) {
-   return fetch(MODULE_API_URL.replace
+    const MODULE_API_URL_3 ='http://localhost:8080/api/module/MODULE_ID';
+   return fetch(MODULE_API_URL_3.replace
       ('MODULE_ID', moduleId), {
        method: 'delete'
    })
